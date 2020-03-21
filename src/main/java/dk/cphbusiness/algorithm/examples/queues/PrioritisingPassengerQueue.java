@@ -26,13 +26,14 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
     public PrioritisingPassengerQueue(int capacity) {
       this.capacity = capacity;
       passengers = new HashMap<>();
-      passengers.put(Category.LateToFlight, new ArrayList<Passenger>());
-      passengers.put(Category.BusinessClass, new ArrayList<Passenger>());
-      passengers.put(Category.Disabled, new ArrayList<Passenger>());
-      passengers.put(Category.Family, new ArrayList<Passenger>());
-      passengers.put(Category.Monkey, new ArrayList<Passenger>());
+      passengers.put(Category.LateToFlight, new ArrayList<>());
+      passengers.put(Category.BusinessClass, new ArrayList<>());
+      passengers.put(Category.Disabled, new ArrayList<>());
+      passengers.put(Category.Family, new ArrayList<>());
+      passengers.put(Category.Monkey, new ArrayList<>());
     }
 
+    @Override
     public void enqueue(Passenger passenger) {
       if (size == capacity)
           throw new IllegalStateException("Cannot add to full queue");
@@ -40,6 +41,7 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
       size++;
       }
 
+    @Override
     public Passenger dequeue() {
       if (size == 0)
           throw new NoSuchElementException("Cannot remove from empty queue");
@@ -48,6 +50,7 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
       return passenger;
       }
 
+    @Override
     public Passenger peek() {
       if (size == 0)
           throw new NoSuchElementException("Cannot peek into empty queue");
@@ -55,6 +58,7 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
       return passenger;
       }
 
+    @Override
     public int size() {
       return size;
       }
@@ -68,7 +72,8 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
         };
         Passenger next = null;
         for (int i = 0; i < categories.length && next == null; i++) {
-            next = passengers.get(categories[i]).remove(0);
+            if (passengers.get(categories[i]).size() > 0)
+                next = passengers.get(categories[i]).remove(0);
         }
         return next;
     }
