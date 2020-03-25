@@ -15,22 +15,20 @@ import java.util.NoSuchElementException;
   
  */
 public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
-    private final Passenger[] items = null;
     Map<Category, List<Passenger>> passengers;
     private int size = 0;
-    private int head = 0; // index of the current front item, if one exists
-    private int tail = 0; // index of next item to be added
     private int capacity = 0;
     
 
     public PrioritisingPassengerQueue(int capacity) {
       this.capacity = capacity;
-      passengers = new HashMap<>();
-      passengers.put(Category.LateToFlight, new ArrayList<>());
-      passengers.put(Category.BusinessClass, new ArrayList<>());
-      passengers.put(Category.Disabled, new ArrayList<>());
-      passengers.put(Category.Family, new ArrayList<>());
-      passengers.put(Category.Monkey, new ArrayList<>());
+      passengers = new HashMap<Category, List<Passenger>>() {{
+        put(Category.LateToFlight, new ArrayList<>());
+        put(Category.BusinessClass, new ArrayList<>());
+        put(Category.Disabled, new ArrayList<>());
+        put(Category.Family, new ArrayList<>());
+        put(Category.Monkey, new ArrayList<>());
+      }};
     }
 
     @Override
@@ -39,7 +37,7 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
           throw new IllegalStateException("Cannot add to full queue");
       passengers.get(passenger.getCategory()).add(passenger);
       size++;
-      }
+    }
 
     @Override
     public Passenger dequeue() {
