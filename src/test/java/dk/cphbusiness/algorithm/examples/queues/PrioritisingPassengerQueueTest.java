@@ -39,25 +39,25 @@ public class PrioritisingPassengerQueueTest {
     }
 
     /**
-     * Test of enqueue method, of class PrioritisingPassengerQueue.
+     * Test of enqueue method, of class SneakyPrioritisingPassengerQueue.
      */
     @Test
     public void testEnqueue() {
         System.out.println("enqueue");
         Passenger passenger = null;
-        PrioritisingPassengerQueue instance = null;
+        SneakyPrioritisingPassengerQueue instance = null;
         instance.enqueue(passenger);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of dequeue method, of class PrioritisingPassengerQueue.
+     * Test of dequeue method, of class SneakyPrioritisingPassengerQueue.
      */
     @Test
     public void testDequeue() {
         System.out.println("dequeue");
-        PrioritisingPassengerQueue instance = null;
+        SneakyPrioritisingPassengerQueue instance = null;
         Passenger expResult = null;
         Passenger result = instance.dequeue();
         assertEquals(expResult, result);
@@ -66,12 +66,12 @@ public class PrioritisingPassengerQueueTest {
     }
 
     /**
-     * Test of peek method, of class PrioritisingPassengerQueue.
+     * Test of peek method, of class SneakyPrioritisingPassengerQueue.
      */
     @Test
     public void testPeek() {
         System.out.println("peek");
-        PrioritisingPassengerQueue instance = null;
+        SneakyPrioritisingPassengerQueue instance = null;
         Passenger expResult = null;
         Passenger result = instance.peek();
         assertEquals(expResult, result);
@@ -80,12 +80,12 @@ public class PrioritisingPassengerQueueTest {
     }
 
     /**
-     * Test of size method, of class PrioritisingPassengerQueue.
+     * Test of size method, of class SneakyPrioritisingPassengerQueue.
      */
     @Test
     public void testSize() {
         System.out.println("size");
-        PrioritisingPassengerQueue instance = null;
+        SneakyPrioritisingPassengerQueue instance = null;
         int expResult = 0;
         int result = instance.size();
         assertEquals(expResult, result);

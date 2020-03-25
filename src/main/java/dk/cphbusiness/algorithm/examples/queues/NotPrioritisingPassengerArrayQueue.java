@@ -47,5 +47,4 @@ public class NotPrioritisingPassengerArrayQueue implements PriorityQueue<Passeng
     public int size() {
       return size;
       }
-    
     }

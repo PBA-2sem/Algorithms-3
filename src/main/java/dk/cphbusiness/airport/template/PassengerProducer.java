@@ -50,8 +50,14 @@ public class PassengerProducer {
     else category = Category.Monkey;
     
     Passenger passenger = new Passenger(nextPassengerId++, now, category, plane);
-    System.out.println("Passenger "+passenger+" added to queue");
-    queue.enqueue(passenger);
+    
+    try {
+        queue.enqueue(passenger);
+        System.out.println("Passenger "+passenger+" added to queue");
+    } catch(IllegalStateException ex) {
+        System.out.println(ex.getMessage());
+    }
+        
     
     processingTicksLeft = randomizer.nextInt(120);
     }

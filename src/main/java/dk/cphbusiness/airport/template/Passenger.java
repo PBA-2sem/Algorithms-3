@@ -40,6 +40,6 @@ public class Passenger implements Comparable<Passenger>{
     if (this.category.compareTo(other.category) != 0)
         return this.category.compareTo(other.category);
     return this.arrivalTime.compareTo(other.arrivalTime);
-    }
+  }
 
   }

@@ -14,13 +14,13 @@ import java.util.NoSuchElementException;
  * @author mbeg
   
  */
-public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
+public class SneakyPrioritisingPassengerQueue implements PriorityQueue<Passenger> {
     Map<Category, List<Passenger>> passengers;
     private int size = 0;
     private int capacity = 0;
     
 
-    public PrioritisingPassengerQueue(int capacity) {
+    public SneakyPrioritisingPassengerQueue(int capacity) {
       this.capacity = capacity;
       passengers = new HashMap<Category, List<Passenger>>() {{
         put(Category.LateToFlight, new ArrayList<>());
@@ -46,7 +46,7 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
       Passenger passenger = getNextPassenger();
       size--;
       return passenger;
-      }
+    }
 
     @Override
     public Passenger peek() {
@@ -59,7 +59,7 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
     @Override
     public int size() {
       return size;
-      }
+    }
     
     private Passenger getNextPassenger() {
         Category[] categories = {Category.LateToFlight,
@@ -90,5 +90,5 @@ public class PrioritisingPassengerQueue implements PriorityQueue<Passenger> {
         }
         return next;
     }
-    
+
     }

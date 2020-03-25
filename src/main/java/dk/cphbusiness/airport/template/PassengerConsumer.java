@@ -33,7 +33,13 @@ public class PassengerConsumer {
         }
       }
     
-    if (queue.isEmpty()) return;
+    if (queue.isEmpty()) {
+        System.out.println("Queue is empty!!!");
+        return;
+    }
+    else {
+        System.out.println("Current size of queue: " + queue.size());
+    }
  
     passenger = queue.dequeue();
     switch (passenger.getCategory()) {
